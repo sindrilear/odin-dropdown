@@ -31,9 +31,12 @@ function showSlides(n) {
   const numberOfSlides = allSlides.length;
   for (i = 0; i < numberOfSlides; i++) {
     const slides = document.getElementById(`pic${i}`);
+    const dot = document.getElementById(`dot${i}`)
     slides.style.display = "none";
+    dot.className = dot.className.replace(" active", "");
     if (i === n) {
       slides.style.display = "flex";
+      dot.className += " active";
     }
     if (slideIndex > numberOfSlides -1 || slideIndex < 0) {
       slideIndex = 0;
