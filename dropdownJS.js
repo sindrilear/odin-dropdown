@@ -18,3 +18,29 @@ document.querySelectorAll(".dropbtn").forEach((button) => {
   });
 });
 
+
+let slideIndex = 0;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n)
+}
+
+function showSlides(n) {
+  const allSlides = document.getElementsByClassName("pictureSlides");
+  const numberOfSlides = allSlides.length;
+  for (i = 0; i < numberOfSlides; i++) {
+    const slides = document.getElementById(`pic${i}`);
+    slides.style.display = "none";
+    if (i === n) {
+      slides.style.display = "flex";
+    }
+    if (slideIndex > numberOfSlides -1 || slideIndex < 0) {
+      slideIndex = 0;
+      showSlides(slideIndex);
+    }
+    console.log(slideIndex);
+}
+}
+
+setInterval(() => plusSlides(1), 5000);
